@@ -1,0 +1,27 @@
+
+/*
+
+  INSTRUCTIONS ---------------------------------------------------------------------------------
+  
+  1. Add this stylesheet to the <head> of your pages
+     <link href="YOUR PATH/calendar_view.css" rel="stylesheet" type="text/css" />
+     
+  2. Use the file name as data-dd-theme attribute on your datedropper elements
+     <input data-dd-theme="calendar_view" />
+     
+*/
+
+
+div.datedropper.calendar_view {
+
+  --dd-color1: black;
+  --dd-color2: #F4F4F4;
+  --dd-color3: #0c4b84;
+  --dd-color4: white;
+
+  --dd-radius: 8px;
+  --dd-width: 180px;
+  --dd-shadow: 0 0 32px 0px rgba(0, 0, 0, 0.1);
+
+}
+

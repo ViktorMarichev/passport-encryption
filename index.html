@@ -1,0 +1,213 @@
+<html>
+<head>
+<title>Шифровка паспорта</title>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="scripts/datedropper.pro.min.js"></script>
+<script src="https://www.gstatic.com/firebasejs/8.3.0/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/8.3.0/firebase-auth.js"></script>
+<script src="https://www.gstatic.com/firebasejs/8.3.0/firebase-database.js"></script> 
+<script src="https://www.gstatic.com/firebasejs/8.3.0/firebase-analytics.js"></script>
+<script type="text/javascript">
+ $(document).ready(function(){
+    $("#btn_one").on("click", function (event) {
+        event.preventDefault();
+            var top = $('#hov_it_work').offset().top;
+        $('body,html').animate({scrollTop: top}, 1500);
+    });
+});
+</script>
+<script src="scripts/jquery.maskedinput.min.js"></script>
+<script  src="scripts/masks.js"></script>
+
+<meta charset="utf-8">
+<link rel="stylesheet" type="text/css" href="css/main.css"></link>
+<link rel="stylesheet" type="text/css" href="css/normalize.css"></link>
+<link rel="stylesheet" type="text/css" href="css/calendar_view.css"></link>
+<link rel="shortcut icon" href="favicon.svg" type="image/x-icon">
+</head>
+<body>
+<main>
+
+<section class="header_section">
+<div class="container">
+<div class="header_page">
+<div class="header_preview">
+<div id="pre_1">RUSSIAN HACKERS</div>
+<div id="line"></div>
+<div id="pre_2">DEMHACK2</div>
+</div>
+<div class="header_block_text">
+<div id="pre_text">Передавайте паспортные данные с <span class="pre_text_blue">максимальной</span> конфиденциальностью</div>
+<div id="pre_text_2">Отправляйте данные через нашу систему шифрования данных с помощью QR кода на защищенный сервер и получайте в любой точке мира на своем смартфоне</div>
+<button id="btn_one" class="btn" >Попробовать</button>
+
+</div>
+<div id="end_title">Помощь в личной цифровой безопасности</div>
+<img id="header_img" src="img/header_img.png"></img>
+</div>
+</section>
+<section class="hint_section">
+<div class="container">
+<div class="main_hint">
+<div class="main_child_one">
+<div class="box_arrow">
+<div id="hov_it_work">как это <span class="pre_text_blue">работает<span></div><img class="arrow" src="img/arrow.png"></img>
+</div>
+</div>
+<div class="main_child_two">
+
+
+<div class="child">
+<div class="text_block">
+<div class="head_child_one">
+Заполняете специальную форму и отправлете данные
+</div>
+<div class="text_child_one">Вводите типичные для паспорта данные - фамилию, имя, отчество владельца, серию и номер, кем и где выдано вместе с датой выдачи. При необходимости укажите данные о прописке - полный адрес, где вы прописаны и зарегистрированы. Не забудьте прикрепить фото или скан паспорта</div>
+</div>
+<div class="img_block">
+<img id="fill_form" src="img/fill_a_form.png"></img>
+</div>
+</div>
+<div class="child">
+<div class="text_block">
+<div class="head_child_one">
+Данные шифруются с помощью генерируемого QR кода
+</div>
+<div class="text_child_one">Полученная информация шифруется по специальному алгоритму, генерируется QR код и отправляется на скоростной, защищенный от любых атак сервер, откуда отправляются в мобильное приложение на вашем смартфоне</div>
+</div>
+<div class="img_block">
+<img id="fill_form" src="img/lock_file.png"></img>
+</div>
+</div>
+<div class="child">
+<div class="text_block">
+<div class="head_child_one">
+Получаете данные в расшифрованном виде на вашем смартфоне
+</div>
+<div class="text_child_one">Полученные от сервера данные расшифровываются вашим личным ключом, который хранится только у вас и больше никто не имеет к нему доступа, даже мы. Просматривайте данные в специальном пункте меню, заботливо подготовленные в удобочитаемом для вас виде</div>
+</div>
+<div class="img_block">
+<img id="fill_form" src="img/secure_messaging.png"></img>
+</div>
+</div>
+
+</div>
+
+
+
+</div>
+</div>
+</section>
+
+<section class="generate_section">
+<div class="container">
+<div class="main_generare" >
+<h1 id="pre_text_two">Попробуйте прямо <span class="pre_text_blue">сейчас</span></h1>
+<div id="smile">Это совершенно бесплатно ;)</div>
+<div class="form_inputs">
+<div class="block_one" >
+
+<div class="input_box">
+<label>Фамилия</label>
+<input id="last_name" type="text" class="input_text" placeholder="Иванов"></input>
+</div>
+<div  class="input_box">
+<label>Имя</label>
+<input id="name" type="text" class="input_text" placeholder="Иван"></input>
+</div>
+<div class="input_box">
+<label>Отчество</label>
+<input id="middle_name" type="text" class="input_text" placeholder="Иванович"></input>
+</div>
+<div class="input_box">
+<label>Дата рождения</label>
+<input id="birth_day" id="date" type="text" class="input_text" placeholder="20.03.1993"  data-dd-modal="true" data-dd-theme="calendar_view" data-dd-lang="ru" data-dd-large="true" data-dd-format="d-m-Y" data-datedropper></input>
+</div>
+<div  class="input_box">
+<label>Выберите пол</label>
+<select id="gender" class="select-css">
+<option>Мужской</option>
+<option>Женский</option>
+</select>
+</div>
+<div class="input_box">
+<label>Получатель данных</label>
+<input id="email" type="text" class="input_text" placeholder="example@gmail.com"></input>
+</div>
+</div>
+<div class="block_one">
+<div class="input_box">
+<label>Серия</label>
+<input  id="series" id="series" type="text" class="input_text" placeholder="0114"></input>
+</div>
+<div class="input_box">
+<label>Номер</label>
+<input id="number_pass" type="text" class="input_text" placeholder="945424"></input>
+</div>
+<div class="input_box">
+<label>Код подразделения</label>
+<input id="code" type="text" class="input_text" placeholder="090-854"></input>
+</div>
+<div class="input_box">
+<label>Дата выдачи</label>
+<input id="date" type="text" class="input_text" placeholder="20.03.1993"  data-dd-modal="true" data-dd-theme="calendar_view" data-dd-lang="ru" data-dd-large="true" data-dd-format="d-m-Y" data-datedropper></input>
+</div>
+<div class="input_box">
+<label>Кем выдан</label>
+<input id="who_gave" type="text" class="input_text" placeholder="УМВД России по Омской Области"></input>
+</div>
+</div>
+
+
+</div>
+<div class="button_box" >
+
+<div class="check_box">
+<input class="checkbox_input" name="agree" type="checkbox" id="checkbox1">
+<label class="checkbox_label" id="label_check" for="checkbox1">Я даю согласие на отправку и обработку личных данных согласно ч. 2 ст. 15 Закона о персональных данных </label>
+
+</div>
+<button id="send" class="btn popup-link" disabled>Отправить</button>
+
+</div>
+</div>
+</div>
+</section>
+<footer>
+<div class="footer_content" align=center>Концепт команды DAD. Копирование и использование в коммерческих целях запрещено. Copyright © 2021</div>
+</footer>
+</div>
+<div id="popup" class="popup">
+<div class="popup_body">
+<div class="popup_content">
+<div href="" class="popup_close close-popup">X</div>
+<div class="popup_title">Готово</div>
+<div id="popup_one_text" class="popup_text">Данные успешно отправлены получателю на аккаунт example@gmail.com</div>
+<img class="img_poup" src="img/chilling_on_couch.png"></img>
+<div class="popup_text">Вы можете посмотреть ваш QR код, который служит в качестве ключа. Используйте его для расшифровки отправленной информации</div>
+<div class="button_box" >
+<button id="look" class="btn popup-link">Посмотреть</button>
+</div>
+</div>
+</div>
+</div>
+<div id="popup_qr" class="popup">
+<div class="popup_body">
+<div class="popup_content">
+<div href="" class="popup_close close-popup">X</div>
+<div class="popup_title">Ваш QR код</div>
+<div class="popup_text popup_email">Используется для расшифровки отправленных данных</div>
+<div class="img_box">
+<img class="img_qr" src=""></img>
+</div>
+<div  class="popup_text">Ни в коем случае не показывайте его, иначе отправленные вами данные могут быть скомпроментированы</div>
+<div class="button_box" >
+<button id="close" class="btn close-popup" >Закрыть</button>
+</div>
+</div>
+</div>
+</div>
+</main>
+<script src="scripts/popup.js"></script>
+</body>
+<html>
